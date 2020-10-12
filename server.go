@@ -7,13 +7,12 @@ import (
 )
 
 type info struct {
-	t string
+	T string `json:"time"`
 }
 
 func timeHandler (w http.ResponseWriter, r *http.Request) {
-	//resp := info{t: time.Now().Format(time.RFC3339)}
-	t := time.Now().Format(time.RFC3339)
-	json.NewEncoder(w).Encode(t)
+	resp := info{time.Now().Format(time.RFC3339)}
+	json.NewEncoder(w).Encode(resp)
 }
 
 func main() {
