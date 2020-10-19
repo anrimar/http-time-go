@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"encoding/json"
 	"log"
+	"io"
 )
 
 type info struct {
