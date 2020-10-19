@@ -4,6 +4,7 @@ import (
 	"time"
 	"net/http"
 	"encoding/json"
+	"log"
 )
 
 type info struct {
@@ -12,10 +13,14 @@ type info struct {
 
 func timeHandler (w http.ResponseWriter, r *http.Request) {
 	resp := info{time.Now().Format(time.RFC3339)}
-	json.NewEncoder(w).Encode(resp)
+	err := json.NewEncoder(w).Encode(resp)
+	if err != nil {
+	log.Println(err)
+	}
 }
 
 func main() {
 	http.HandleFunc("/time", timeHandler)
 	http.ListenAndServe(":8795", nil)
 }
+
