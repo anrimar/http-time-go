@@ -8,7 +8,6 @@ import (
 )
 
 type info struct {
-//Angle quotes shows how the T field name will be displayed in json
 	T string `json:"time"`
 }
 //This function will be executed when performing an HTTP GET request to /time
